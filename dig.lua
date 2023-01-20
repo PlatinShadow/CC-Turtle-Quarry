@@ -25,15 +25,17 @@ while fuel < roomSize do
     print("Not enough fuel")
     return
   end
+  fuel = turtle.getFuelLevel()
 end
  
 local direction = true
-for i = 1, z do
+for i = 1, (z + 1) do
   for j = 1, y do
     for k = 1, x do
       turtle.dig()
       turtle.forward()
     end
+    if j < y then
       if direction then
         turtle.turnRight()
         turtle.dig()
@@ -45,13 +47,14 @@ for i = 1, z do
         turtle.dig()
         turtle.forward()
         turtle.turnLeft()
-        direction = true
+       direction = true
       end
     end
-  if i < z then
+  end
+  if i <= z then
     turtle.digDown()
     turtle.down()
     turtle.turnRight()
-    turtle.turnRight() 
+    turtle.turnRight()
   end
-end
+end 
