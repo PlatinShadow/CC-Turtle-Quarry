@@ -1,6 +1,5 @@
 function makeHole(x, y , z)
-local dir = direction
-
+  local dir = vector.new(direction.x, direction.y , direction.z)
   for i = 1, (z + 1) do
     for j = 1, y do
       for k = 1, x do
@@ -14,8 +13,6 @@ local dir = direction
           turtle.forward()
           turtle.turnRight()
           rotateOpposite()
-          printDirection(direction)
-          printDirection(dir)
         else
           turtle.turnLeft()
           turtle.dig()
@@ -30,7 +27,6 @@ local dir = direction
       turtle.down()
       turtle.turnRight()
       turtle.turnRight()
-      rotateOpposite()
     end
   end 
 end
